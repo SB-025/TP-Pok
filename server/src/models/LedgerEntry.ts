@@ -10,6 +10,9 @@ const ledgerEntrySchema = new mongoose.Schema({
   amount: { type: Number, required: true },
   fromUserId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   toUserId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  metadata: {
+    potId: { type: mongoose.Schema.Types.ObjectId, ref: 'Pot' }
+  }
 }, { timestamps: true });
 
 // Index for querying room ledger efficiently
