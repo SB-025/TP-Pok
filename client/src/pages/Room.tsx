@@ -24,13 +24,12 @@ export const Room = () => {
   const { user } = useAuthStore();
   
   const { 
-    room, players, ledger, pot, connectionStatus,
+    room, players, pot, connectionStatus,
     fetchRoomState, setRoomState, setPotState, leaveRoom, 
     startGame, fetchLedger, contributeToPot, transferChips, settlePot,
     setConnectionStatus, error, isLoading 
   } = useRoomStore();
 
-  const [activeTab, setActiveTab] = useState('hud');
   const [sheet, setSheet] = useState<'TRANSFER' | 'POT' | 'PAYOUT' | null>(null);
 
   useEffect(() => {

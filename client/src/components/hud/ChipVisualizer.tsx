@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 interface ChipVisualizerProps {
@@ -7,14 +7,10 @@ interface ChipVisualizerProps {
 
 export const ChipVisualizer = ({ amount }: ChipVisualizerProps) => {
   const [prevAmount, setPrevAmount] = useState(amount);
-  const [diff, setDiff] = useState(0);
 
   useEffect(() => {
     if (amount !== prevAmount) {
-      setDiff(amount - prevAmount);
       setPrevAmount(amount);
-      const timer = setTimeout(() => setDiff(0), 3000);
-      return () => clearTimeout(timer);
     }
   }, [amount, prevAmount]);
 
