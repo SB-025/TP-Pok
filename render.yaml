@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: tp-pok-backend
+    env: node
+    rootDir: server
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        sync: false # User must set this in the Render Dashboard
+      - key: JWT_SECRET
+        generateValue: true # Render will auto-generate a secure 256-bit string
+      - key: CLIENT_URL
+        sync: false # User will set this to their Vercel URL
